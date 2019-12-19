@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 
 @Controller
+//DID I get it right?
 public class HomeController {
 
     @Value("${spring.application.name}")
