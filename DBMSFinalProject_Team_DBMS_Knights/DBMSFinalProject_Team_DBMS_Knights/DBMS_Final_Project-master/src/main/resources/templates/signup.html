@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:src="@{images/wallet.png}">
+
+    <title>DBMS Final Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/signin.css" th:href="@{css/signin.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/signin_all.css"
+          th:href="@{css/signin_all.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/my_custom.css"
+          th:href="@{css/my_custom.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign Up</h5>
+                    <form class="form-signin" action="#" th:action="@{/createUser}" method="post">
+                        <div class="form-label-group">
+                            <input type="text" id="firstName" th:field="*{user.name}" class="form-control"
+                                   placeholder="First Name" maxlength="30" required autofocus>
+                            <label for="firstName">First Name*</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="email" id="email" th:field="*{user.email}" class="form-control"
+                                   placeholder="Email address" maxlength="30" required
+                                   autofocus>
+                            <label for="email">Email address*</label>
+                            <span style="color:red; visibility:hidden; margin:auto; text-align:center;"
+                                  id="email_error_msg" class="help-block" th:if="${email_error != null}"><p>&nbsp;Email Address is already present<p></span>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="User_Password" th:field="*{user.password}"
+                                   class="form-control" placeholder="User Password" minlength="8" maxlength="30"
+                                   required autofocus>
+                            <label for="User_Password">Password*</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="text" id="street" th:field="*{user.address}" class="form-control"
+                                   placeholder="Street" maxlength="30" required autofocus>
+                            <label for="street">Address*</label>
+                        </div>
+
+                        <h1></h1>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
+                        <div class="text-center mt-4"><a class="small">Already have an Account ?</a></div>
+                        <div class="text-center"><a class="large" th:href="@{signin.html}">Sign In?</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+</body>
+</html>

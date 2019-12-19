@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:src="@{images/wallet.png}">
+
+    <title>DBMS Final Project</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/my_custom.css"
+          th:href="@{css/my_custom.css}"/>
+
+</head>
+
+<body>
+
+<div class="d-flex bg-custom-dark flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
+    <a class="" th:href="@{/}"><img class="mb-2 ml-1 mx-3" alt="" width="50" height="50"
+                                    th:src="@{images/wallet.png}" src=""></a>
+    <h5 class="my-0 mr-md-auto font-weight-normal text-light">DBMS Final Project</h5>
+    <div th:if="${userLoggedIn == false}">
+        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{signin.html}">Sign In</a>
+        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{signup.html}">Sign Up</a>
+    </div>
+    <div th:if="${userLoggedIn == true}">
+        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/user_profile}">Profile</a>
+        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/all_orders}">Orders</a>
+        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/logout}">Log out</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="mt-4 text-center">User Profile</h2>
+    <div class="row">
+        <div class="row bg-white mt-3">
+            <div class="row my-4 box-shadow">
+                <div class="col-md-3">
+                    <img class="w-100 p-3" th:src="@{/images/boy_dbms.png}" src="">
+                </div>
+                <div class="col-md-9 mt-4 px-2">
+                    <h4 th:text="'User Name: ' + ${user.name}"></h4>
+                    <h5 th:text="'User Email: ' + ${user.email}"></h5>
+                    <h5 th:text="'User Type: ' + ${user.type == 'C' ? 'Customer' : 'Admin'}"></h5>
+                    <p class="my-0 font-weight-bold">Address:</p>
+                    <p th:text="${user.address}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img class="mb-2" alt="" width="50" height="50" th:src="@{images/wallet.png}" src="">
+                <small class="d-block mb-3 text-muted">&copy; 201-2018</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Random feature</a></li>
+                    <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Resource</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://unpkg.com/tooltip.js"></script>
+<script src="https://unpkg.com/popper.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
