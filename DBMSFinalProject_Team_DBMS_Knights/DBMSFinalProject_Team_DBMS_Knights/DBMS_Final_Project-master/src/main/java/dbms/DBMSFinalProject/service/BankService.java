@@ -23,4 +23,13 @@ public class BankService {
         return banks;
     }
 
+
+    public void insertBank(String bank_name, String bank_poster){
+        bankRepo.insertBank( bank_name, bank_poster );
+
+    }
+
+    public void deleteBank(Long bank_id){
+        bankRepo.deleteBank( bank_id );
+    }
 }

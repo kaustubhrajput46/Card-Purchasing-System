@@ -69,6 +69,9 @@ INSERT INTO BANK (BANK_NAME, BANK_POSTER) values
 -- password: sid1234567
 INSERT INTO USER (name, email, password, address, type) values
 ('Siddhartha Dimania', 'siddimania@gmail.com', 'bJp48xVpIYlJf3oCljwSdvJs5COPphRcR1dfNUYaz+I=$AMiORHZyQGUAvu+xvDNyfx2FleByxy3O9F14mh3i/tk=', '204 Lakeside - Party House, 30605', 'C');
+-- password: sid1234567
+INSERT INTO USER (name, email, password, type, password_Reset_Token) values
+('Kaustubh Rajput', 'kaustubhrajput46@gmail.com', 'bJp48xVpIYlJf3oCljwSdvJs5COPphRcR1dfNUYaz+I=$AMiORHZyQGUAvu+xvDNyfx2FleByxy3O9F14mh3i/tk=', 'A', 'not_defined');
 
 --     Bank Name : JP Morgan- Chase
 --     Debit Cards : https://www.chase.com/business/debit-cards

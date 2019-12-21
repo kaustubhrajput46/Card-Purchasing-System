@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:src="@{images/wallet.png}">
+
+    <title>DBMS Final Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/signin.css" th:href="@{css/signin.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/signin_all.css"
+          th:href="@{css/signin_all.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/my_custom.css"
+          th:href="@{css/my_custom.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Add new Bank.</h5>
+                    <form class="form-inline my-2 my-lg-0 mx-2 align-self-center" action="/add_bank_result"
+                          th:action="@{/add_bank_result}" method="post">
+                        <div class="form-label-group">
+                            <input type="text" id="inputBankName" name="inputBankName" class="form-control" th:value="${bank.bank_name}"
+                                   placeholder="Bank Name" required autofocus>
+                            <label for="inputBankName">Bank Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="inputBankImage" name="inputBankImage" class="form-control" th:value="${bank.bank_poster}"
+                                   placeholder="Bank Image Name" required autofocus>
+                            <label for="inputBankImage">Bank Image Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <button class="btn btn-outline-primary bg-primary text-light" type="submit">Add Bank</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://unpkg.com/tooltip.js"></script>
+<script src="https://unpkg.com/popper.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
