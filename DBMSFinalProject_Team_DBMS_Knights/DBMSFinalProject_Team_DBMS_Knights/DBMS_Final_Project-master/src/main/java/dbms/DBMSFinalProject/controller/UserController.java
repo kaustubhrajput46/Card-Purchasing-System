@@ -44,26 +44,6 @@ public class UserController {
         return "signin";
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String loginUser(@ModelAttribute("user") User user, Model model, HttpServletRequest request, HttpSession session) throws Exception {
-//        int result = userService.doLogin(user);
-//        String userType = userService.getUserType(user);
-//        if (result == BankSystemConstants.success && !StringUtils.isEmpty(userType)) {
-//            userService.createUserSession(user, request);
-//            if (BankSystemConstants.customer.equalsIgnoreCase(userType)) {
-//                model.addAttribute("banks", bankService.getAllBankList());
-//                model.addAttribute("banks", bankService.getAllBankList());
-//                model.addAttribute("userLoggedIn", userService.userLoggedIn(session));
-//                return "home";
-//            } else {
-//                return "admin_portal";
-//            }
-//        } else {
-//            model.addAttribute("error_i", "The email or password is incorrect");
-//            return "signin";
-//        }
-//    }
-    //Kaustubh Start
 @RequestMapping(value = "/login", method = RequestMethod.POST)
 public String loginUser(@ModelAttribute("user") User user, Model model, HttpServletRequest request) throws Exception {
     int result = userService.doLogin(user);
@@ -87,8 +67,6 @@ public String loginUser(@ModelAttribute("user") User user, Model model, HttpServ
     model.addAttribute("error_i", "The email or password is incorrect");
     return "signin";
 }
-
-    //Kaustubh End
 
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String createUser(@ModelAttribute("user") User user, Model model) throws Exception {
@@ -127,5 +105,4 @@ public String loginUser(@ModelAttribute("user") User user, Model model, HttpServ
         session.invalidate();
         return "redirect:/";
     }
-
 }

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface BankRepository extends JpaRepository<Bank, Long> {
-    //Kaustubh start
     @Modifying
     @Query(value = "insert into Bank (bank_name, bank_poster) VALUES (:bank_name, :bank_poster)", nativeQuery = true)
     @Transactional
@@ -24,5 +23,4 @@ public interface BankRepository extends JpaRepository<Bank, Long> {
     @Transactional
     @Query(value = "update Bank b set b.bank_name=(:bank_name), b.bank_poster=(:bank_poster) where b.bank_id=(:bank_id)", nativeQuery = true)
     void updateBank(@Param("bank_id") int bank_id, @Param("bank_name") String bank_name, @Param( "bank_poster" ) String bank_poster);
-    //Kaustubh end
 }

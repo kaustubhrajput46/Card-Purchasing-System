@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
 <div class="d-flex bg-custom-dark flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
     <a class="" th:href="@{/}"><img class="mb-2 ml-1 mx-3" alt="" width="50" height="50"
                                     th:src="@{images/wallet.png}" src=""></a>
@@ -29,8 +28,6 @@
         <button class="btn btn-outline-primary bg-primary text-light" type="submit">Add Bank</button>
     </form>
     <div th:if="${userLoggedIn == true}">
-        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{edit_profile.html}">Edit Profile</a>
-        <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/all_orders}">Orders</a>
         <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/logout}">Log out</a>
     </div>
 </div>
@@ -47,7 +44,6 @@
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal" > Bank Header</h4>
                     </div>
-
                     <div class="card-body">
                         <img class="w-75 p-3" th:src="${'/images/bank_posters/bank_5.jpeg'}">
                         <form class="mx-auto" action="/view_banks" th:action="@{/view_banks}" method="post">

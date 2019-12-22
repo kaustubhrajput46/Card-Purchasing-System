@@ -34,7 +34,6 @@
                aria-label="bankSearch">
         <button class="btn btn-outline-primary bg-primary text-light" type="submit">Search</button>
     </form>
-
     <div th:if="${userLoggedIn == true}">
         <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{edit_profile.html}">Edit Profile</a>
         <a class="btn btn-outline-primary bg-primary text-light mx-2" th:href="@{/logout}">Log out</a>
@@ -46,7 +45,7 @@
 </div>
 
 <div class="container">
-    <table>
+    <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>Id</th>
@@ -56,13 +55,13 @@
         </thead>
         <tbody>
         <tr th:each="bank : ${banks}">
-            <td><span th:text="${bank.bank_id}">Id</span></td>
+            <td><span th:text="${bank.bank_id}" cssStyle="width: 150px;">Id</span></td>
             <td><span th:text="${bank.bank_name}">Name</span></td>
             <td><span th:text="${bank.bank_poster}">Image</span></td>
             <td>
                 <form class="mx-auto" action = "/add_card" th:action="@{/add_card}" method="post">
                     <input id="selected_bank_id_add_card" name="selected_bank_id_add_card" th:value="${bank.bank_id}" type="hidden">
-                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Add a Card</button>
+                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Add Card</button>
                 </form>
             </td>
             <td>
@@ -76,7 +75,7 @@
                     <input id="bank_id_update" name="bank_id_update" th:value="${bank.bank_id}" type="hidden">
                     <input id="bank_name_update" name="bank_name_update" th:value="${bank.bank_name}" type="hidden">
                     <input id="bank_poster_update" name="bank_poster_update" th:value="${bank.bank_poster}" type="hidden">
-                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Update details</button>
+                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Update</button>
                 </form>
             </td>
             <td>
@@ -88,7 +87,6 @@
         </tr>
         </tbody>
     </table>
-
     </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">

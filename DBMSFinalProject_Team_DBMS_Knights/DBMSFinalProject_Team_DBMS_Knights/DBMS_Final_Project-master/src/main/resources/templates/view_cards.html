@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
 <div class="d-flex bg-custom-dark flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
     <a class="" th:href="@{/}"><img class="mb-2 ml-1 mx-3" alt="" width="50" height="50"
                                     th:src="@{images/wallet.png}" src=""></a>
@@ -49,7 +48,7 @@
 </div>
 
 <div class="container">
-    <table>
+    <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>Id</th>
@@ -72,7 +71,6 @@
             <th><span th:text="${bankcard.card_poster}">Poster</span></th>
             <th><span th:text="${bankcard.ref_bank_id}">Bank Id</span></th>
             <th><span th:text="${bankcard.card_price}">Card Price</span></th>
-
             <td>
                 <form class="mx-auto" action = "/update_card" th:action="@{/update_card}" method="post">
                     <input id="card_id_to_update" name="card_id_to_update" th:value="${bankcard.bankcard_id}" type="hidden">
@@ -84,7 +82,7 @@
                     <input id="card_poster_to_update" name="card_poster_to_update" th:value="${bankcard.card_poster}" type="hidden">
                     <input id="card_bank_id_to_update" name="card_bank_id_to_update" th:value="${bankcard.ref_bank_id}" type="hidden">
                     <input id="card_price_to_update" name="card_price_to_update" th:value="${bankcard.card_price}" type="hidden">
-                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Update details</button>
+                    <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Update</button>
                 </form>
             </td>
             <td>

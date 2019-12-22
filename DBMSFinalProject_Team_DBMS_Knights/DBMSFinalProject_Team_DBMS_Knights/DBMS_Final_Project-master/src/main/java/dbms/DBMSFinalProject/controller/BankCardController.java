@@ -32,7 +32,6 @@ public class BankCardController {
         model.addAttribute("userLoggedIn", userService.userLoggedIn(session));
         return "Bank_selected";
     }
-    //Kaustubh Start
     @RequestMapping(value = "/view_cards", method = RequestMethod.POST)
     public String viewCards(@RequestParam("selected_bank_id_view") Integer ref_bank_id, Model model) {
         List<Bankcard> bankcards = new ArrayList<>();
@@ -79,7 +78,6 @@ public class BankCardController {
         return "add_card";
     }
 
-
     @RequestMapping(value = "/update_card_result", method = RequestMethod.POST)
     public String updateCardDecision(Model model, @RequestParam("bankcard_id_update") Integer bankcard_id, @RequestParam("card_name_update") String card_name,
                                      @RequestParam("card_type_update") String card_type, @RequestParam("card_benefits_update") String card_benefits,
@@ -101,6 +99,4 @@ public class BankCardController {
         model.addAttribute("bankcards", bankcardrepo.getBankcard_id1(ref_bank_id));
         return "view_cards";
     }
-    //Kaustubh End
-
 }

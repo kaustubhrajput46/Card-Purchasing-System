@@ -41,7 +41,7 @@ public class BankController {
         model.addAttribute("banks", banks);
         return "home";
     }
-    //Kaustubh start
+
     @RequestMapping(value = "/view_banks", method = RequestMethod.POST)
     public String viewBanks(Model model, HttpServletRequest request) throws Exception {
         model.addAttribute("banks", bankService.getAllBankList());
@@ -79,6 +79,7 @@ public class BankController {
         model.addAttribute("update_bank", true);
         return "add_bank";
     }
+
     @RequestMapping(value = "/delete_bank", method = RequestMethod.POST)
     public String deleteBank(Model model, @RequestParam("selected_bank_id_delete") Long bank_id, HttpServletRequest request){
         bankService.deleteBank( bank_id );
@@ -90,6 +91,4 @@ public class BankController {
         model.addAttribute("banks", bankService.getAllBankList());
         return "view_banks";
     }
-
-    //Kaustubh end
 }
