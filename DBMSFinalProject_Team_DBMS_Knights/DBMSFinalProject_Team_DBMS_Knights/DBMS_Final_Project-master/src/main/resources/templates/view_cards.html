@@ -76,6 +76,14 @@
             <td>
                 <form class="mx-auto" action = "/update_card" th:action="@{/update_card}" method="post">
                     <input id="card_id_to_update" name="card_id_to_update" th:value="${bankcard.bankcard_id}" type="hidden">
+                    <input id="card_name_to_update" name="card_name_to_update" th:value="${bankcard.card_name}" type="hidden">
+                    <input id="card_type_to_update" name="card_type_to_update" th:value="${bankcard.card_type}" type="hidden">
+                    <input id="card_benefits_to_update" name="card_benefits_to_update" th:value="${bankcard.card_benefits}" type="hidden">
+                    <input id="card_rating_to_update" name="card_rating_to_update" th:value="${bankcard.card_rating}" type="hidden">
+                    <input id="card_rewards_to_update" name="card_rewards_to_update" th:value="${bankcard.card_rewards}" type="hidden">
+                    <input id="card_poster_to_update" name="card_poster_to_update" th:value="${bankcard.card_poster}" type="hidden">
+                    <input id="card_bank_id_to_update" name="card_bank_id_to_update" th:value="${bankcard.ref_bank_id}" type="hidden">
+                    <input id="card_price_to_update" name="card_price_to_update" th:value="${bankcard.card_price}" type="hidden">
                     <button class="mx-auto btn btn-lg btn-primary text-uppercase" type="submit">Update details</button>
                 </form>
             </td>

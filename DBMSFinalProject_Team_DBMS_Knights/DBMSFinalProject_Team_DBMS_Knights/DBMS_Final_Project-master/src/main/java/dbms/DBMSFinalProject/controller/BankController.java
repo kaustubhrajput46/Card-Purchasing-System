@@ -52,12 +52,19 @@ public class BankController {
     public String addBank(Model model, HttpServletRequest request) throws Exception {
         Bank bank = new Bank();
         model.addAttribute( "bank", bank);
+        model.addAttribute("update_bank", false);
         return "add_bank";
     }
 
     @RequestMapping(value = "/add_bank_result", method = RequestMethod.POST)
     public String addBankDecision(Model model, @RequestParam("inputBankName") String bankName, @RequestParam("inputBankImage") String bankImange, HttpServletRequest request) throws Exception{
         bankService.insertBank(bankName, bankImange);
+        return "redirect:/view_banks";
+    }
+
+    @RequestMapping(value = "/update_bank_result", method = RequestMethod.POST)
+    public String updateBankDecision(Model model, @RequestParam("bankId") Integer bankId, @RequestParam("inputBankName1") String bankName, @RequestParam("inputBankImage1") String bankImange, HttpServletRequest request) throws Exception{
+        bankService.updateBank(bankId, bankName, bankImange);
         return "redirect:/view_banks";
     }
 
@@ -69,6 +76,7 @@ public class BankController {
         bank.setBank_name(bank_name);
         bank.setBank_poster(bank_poster);
         model.addAttribute("bank", bank);
+        model.addAttribute("update_bank", true);
         return "add_bank";
     }
     @RequestMapping(value = "/delete_bank", method = RequestMethod.POST)

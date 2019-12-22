@@ -19,5 +19,10 @@ public interface BankRepository extends JpaRepository<Bank, Long> {
     @Query(value = "delete from Bank b where b.bank_id=(:bank_id)", nativeQuery = true)
     @Transactional
     void deleteBank(@Param( "bank_id") Long bank_id );
+
+    @Modifying
+    @Transactional
+    @Query(value = "update Bank b set b.bank_name=(:bank_name), b.bank_poster=(:bank_poster) where b.bank_id=(:bank_id)", nativeQuery = true)
+    void updateBank(@Param("bank_id") int bank_id, @Param("bank_name") String bank_name, @Param( "bank_poster" ) String bank_poster);
     //Kaustubh end
 }

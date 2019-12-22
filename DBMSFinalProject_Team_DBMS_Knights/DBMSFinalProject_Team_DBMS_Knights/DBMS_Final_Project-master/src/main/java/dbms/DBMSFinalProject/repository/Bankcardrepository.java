@@ -43,4 +43,14 @@ public interface Bankcardrepository extends JpaRepository<Bankcard, Long> {
     @Transactional
     void deleteCard (@Param( "bankcard_id") Long bankcard_id );
     //Kaustubh End
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "update Bankcard b set b.bankcard_id=(:bankcard_id), b.card_name=(:card_name), b.card_type=(:card_type), b.card_benefits=(:card_benefits), b.card_rating=(:card_rating), b.card_rewards=(:card_rewards ), b.card_poster=(:card_poster), b.card_price=(:card_price ) where b.bankcard_id=(:bankcard_id)", nativeQuery = true)
+    void updateBankCard(@Param("bankcard_id") int bankcard_id, @Param("card_name") String card_name, @Param("card_type") String card_type,
+                        @Param("card_benefits") String card_benefits, @Param("card_rating") Float card_rating, @Param("card_rewards") String card_rewards,
+                        @Param("card_poster") String card_poster, @Param("card_price") double card_price);
+
+
 }

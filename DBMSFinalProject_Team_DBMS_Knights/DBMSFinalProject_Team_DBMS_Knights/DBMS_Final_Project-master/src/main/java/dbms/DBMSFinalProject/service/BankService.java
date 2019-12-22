@@ -29,6 +29,10 @@ public class BankService {
 
     }
 
+    public void updateBank(int bankId, String bankName, String bankImange){
+        bankRepo.updateBank(bankId, bankName, bankImange);
+    }
+
     public void deleteBank(Long bank_id){
         bankRepo.deleteBank( bank_id );
     }

@@ -21,62 +21,131 @@
           th:href="@{css/my_custom.css}"/>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-signin my-5">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Add new Card.</h5>
-                    <form class="form-inline my-2 my-lg-0 mx-2 align-self-center" action="/add_card_result"
-                          th:action="@{/add_card_result}" method="post">
-                        <div class="form-label-group">
-                            <input type="hidden" th:value="${bank_id}" id="bankId" name="bankId" class="form-control"
-                                   placeholder="Bank Id" readonly >
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardName" name="bankcardName" class="form-control"
-                                   placeholder="Card Name" required autofocus>
-                            <label for="bankcardName">Card Name</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardType" name="bankcardType" class="form-control"
-                                   placeholder="Card Type" required autofocus>
-                            <label for="bankcardType">Card Type</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardBenefits" name="bankcardBenefits" class="form-control"
-                                   placeholder="Card Benefits" required autofocus>
-                            <label for="bankcardBenefits">Card Benefits</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardRating" name="bankcardRating" class="form-control"
-                                   placeholder="Card Rating" required autofocus>
-                            <label for="bankcardRating">Rating</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardRewards" name="bankcardRewards" class="form-control"
-                                   placeholder="Card Rewards" required autofocus>
-                            <label for="bankcardRewards">Rewards</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardPoster" name="bankcardPoster" class="form-control"
-                                   placeholder="Card Poster" required autofocus>
-                            <label for="bankcardPoster">Card Poster</label>
-                        </div>
-                        <div class="form-label-group">
-                            <input type="text" id="bankcardPrice" name="bankcardPrice" class="form-control"
-                                   placeholder="Card Price" required autofocus>
-                            <label for="bankcardPrice">Card Price</label>
-                        </div>
-                        <div class="form-label-group">
-                            <button class="btn btn-outline-primary bg-primary text-light" type="submit">Add Card</button>
-                        </div>
-                    </form>
+<div th:if="${update_card == false}">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Add Card.</h5>
+                        <form class="form-inline my-2 my-lg-0 mx-2 align-self-center" action="/add_card_result"
+                              th:action="@{/add_card_result}" method="post">
+                            <div class="form-label-group">
+                                <input type="hidden" th:value="${bank_id}" id="bankId" name="bankId" class="form-control"
+                                       placeholder="Bank Id" readonly >
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardName" name="bankcardName" class="form-control"
+                                       placeholder="Card Name" required autofocus>
+                                <label for="bankcardName">Card Name</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardType" name="bankcardType" class="form-control"
+                                       placeholder="Card Type" required autofocus>
+                                <label for="bankcardType">Card Type</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardBenefits" name="bankcardBenefits" class="form-control"
+                                       placeholder="Card Benefits" required autofocus>
+                                <label for="bankcardBenefits">Card Benefits</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardRating" name="bankcardRating" class="form-control"
+                                       placeholder="Card Rating" required autofocus>
+                                <label for="bankcardRating">Rating</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardRewards" name="bankcardRewards" class="form-control"
+                                       placeholder="Card Rewards" required autofocus>
+                                <label for="bankcardRewards">Rewards</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardPoster" name="bankcardPoster" class="form-control"
+                                       placeholder="Card Poster" required autofocus>
+                                <label for="bankcardPoster">Card Poster</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="bankcardPrice" name="bankcardPrice" class="form-control"
+                                       placeholder="Card Price" required autofocus>
+                                <label for="bankcardPrice">Card Price</label>
+                            </div>
+                            <div class="form-label-group">
+                                <button class="btn btn-outline-primary bg-primary text-light" type="submit">Add Card</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div th:if="${update_card == true}">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Add new Card.</h5>
+                        <form class="form-inline my-2 my-lg-0 mx-2 align-self-center" action="/update_card_result"
+                              th:action="@{/update_card_result}" method="post">
+                            <div class="form-label-group">
+                                <input type="hidden" th:value="${bankcard.bankcard_id}" id="bankcard_id_update" name="bankcard_id_update" class="form-control"
+                                       placeholder="Bank Card Id" readonly >
+                            </div>
+                            <div class="form-label-group">
+                                <input type="hidden" th:value="${bankcard.ref_bank_id}" id="ref_bank_id_update" name="ref_bank_id_update" class="form-control"
+                                       placeholder="Ref Bank Id" readonly >
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_name}" id="card_name_update" name="card_name_update" class="form-control"
+                                       placeholder="Card Name" required autofocus>
+                                <label for="card_name_update">Card Name</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_type}" id="card_type_update" name="card_type_update" class="form-control"
+                                       placeholder="Card Type" required autofocus>
+                                <label for="card_type_update">Card Type</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_benefits}" id="card_benefits_update" name="card_benefits_update" class="form-control"
+                                       placeholder="Card Benefits" required autofocus>
+                                <label for="card_benefits_update">Card Benefits</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_rating}" id="card_rating_update" name="card_rating_update" class="form-control"
+                                       placeholder="Card Rating" required autofocus>
+                                <label for="card_rating_update">Card Rating</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_rewards}" id="card_rewards_update" name="card_rewards_update" class="form-control"
+                                       placeholder="Card Rewards" required autofocus>
+                                <label for="card_rewards_update">Card Rewards</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_poster}" id="card_poster_update" name="card_poster_update" class="form-control"
+                                       placeholder="Card Poster" required autofocus>
+                                <label for="card_poster_update">Card Poster</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" th:value="${bankcard.card_price}" id="card_price_update" name="card_price_update" class="form-control"
+                                       placeholder="Card Price" required autofocus>
+                                <label for="card_price_update">Card Price</label>
+
+                            </div>
+                            <div class="form-label-group">
+                                <button class="btn btn-outline-primary bg-primary text-light" type="submit">Update Card</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://unpkg.com/tooltip.js"></script>
 <script src="https://unpkg.com/popper.js"></script>
